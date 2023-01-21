@@ -13,7 +13,7 @@ const Home = () => {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -28,8 +28,13 @@ const Home = () => {
   ) : (
     <div>
       <Hero />
-
-      <Link to={"/product/123"}>To product Page</Link>
+      {data.offers.map((element, index) => {
+        return (
+          <div key={element._id}>
+            <Link to={`/product/${element._id}`}>{element.product_name}</Link>
+          </div>
+        );
+      })}
     </div>
   );
 };
