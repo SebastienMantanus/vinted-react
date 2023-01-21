@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 const Header = () => {
   return (
-    <div>
-      <h1>Header</h1>
-      <Link to="/">Home Page</Link>
-      <Link to="/product/id">Product page</Link>
-    </div>
+    <header>
+      <div className="container">
+        <Link to="/">
+          <img src={logo} alt="logo vinted" />
+        </Link>
+        <input type="text" placeholder="Rechercher des articles" />
+        <div className="flex-signup">
+          <div className="button signup">S'inscrire</div>
+          <div className="button signup">Se connecter</div>
+        </div>
+        <div className="button sale">Vends tes articles</div>
+      </div>
+    </header>
   );
 };
 

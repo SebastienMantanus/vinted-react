@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import Hero from "../components/Hero";
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Hero />
+
       <Link to={"/product/123"}>To product Page</Link>
     </div>
   );

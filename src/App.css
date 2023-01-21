@@ -1,0 +1,63 @@
+@import url("https://fonts.cdnfonts.com/css/maison-neue");
+
+/* ALL */
+
+/* HEADER */
+
+header {
+  border-bottom: 1px solid lightgray;
+  font-family: "Maison Neue", sans-serif;
+}
+
+header > .container {
+  width: 1250px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header input {
+  width: 600px;
+  height: 35px;
+  background-color: #f5f6f7;
+  border: none;
+  padding-left: 20px;
+}
+
+.button {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 13px;
+}
+
+.flex-signup {
+  display: flex;
+  gap: 10px;
+}
+.signup {
+  border: 1px solid #2baeb7;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 13px;
+}
+
+header .sale {
+  color: white;
+  background-color: #2baeb7;
+}
+
+/* HERO */
+
+.hero-background {
+  background-image: url(./assets/banner-wide.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hero-container {
+  width: 1250px;
+  height: 500px;
+  margin: 0 auto;
+}
