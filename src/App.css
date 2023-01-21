@@ -63,3 +63,23 @@ header .sale {
 }
 
 /* MAIN */
+
+/* PRODUCT */
+
+.product-div {
+  background-color: #f5f6f7;
+  display: flex;
+  justify-content: center;
+}
+.product-container {
+  width: 1250px;
+  margin: 25px auto;
+  /* border: red 2px solid; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-container img {
+  width: 430px;
+  object-fit: cover;
+}
