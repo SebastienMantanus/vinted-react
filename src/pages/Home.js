@@ -28,13 +28,42 @@ const Home = () => {
   ) : (
     <div>
       <Hero />
-      {data.offers.map((element, index) => {
-        return (
-          <div key={element._id}>
-            <Link to={`/product/${element._id}`}>{element.product_name}</Link>
-          </div>
-        );
-      })}
+      <div className="offers-grid">
+        {data.offers.map((element, index) => {
+          return (
+            <div key={element._id}>
+              {element.owner && (
+                <Link to={`/product/${element._id}`}>
+                  <div className="offer">
+                    <div className="offer-owner">
+                      <img
+                        src={element.owner.account.avatar.secure_url}
+                        alt="owner avatar"
+                      />
+                      <p>{element.owner.account.username}</p>
+                    </div>
+
+                    <img
+                      className="offer-image"
+                      src={element.product_image.secure_url}
+                      alt="product illustrtion"
+                    />
+                    <div className="offer-details">
+                      <p>
+                        {element.product_price.toFixed(2).replace(".", ",")} €
+                      </p>
+
+                      {element.product_details.map((element, index) => {
+                        return <p>{element.MARQUE}</p>;
+                      })}
+                    </div>
+                  </div>
+                </Link>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

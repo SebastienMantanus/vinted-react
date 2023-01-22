@@ -1,7 +1,9 @@
 @import url("https://fonts.cdnfonts.com/css/maison-neue");
 
 /* ALL */
-
+a {
+  text-decoration: none;
+}
 /* HEADER */
 
 header {
@@ -64,12 +66,62 @@ header .sale {
 
 /* MAIN */
 
+/* OFFERS */
+.offers-grid {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.offer {
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.offer-owner {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
+}
+
+.offer-owner > img {
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+}
+
+.offer-owner > p {
+  font-size: 12px;
+  color: #757575;
+  font-family: "Maison Neue", sans-serif;
+}
+
+.offer > img {
+  width: 235px;
+  height: 330px;
+  object-fit: cover;
+}
+
+.offer-details {
+  display: flex;
+  color: #757575;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Maison Neue", sans-serif;
+}
+
 /* PRODUCT */
 
 .product-div {
   background-color: #f5f6f7;
   display: flex;
   justify-content: center;
+  font-family: "Maison Neue", sans-serif;
 }
 .product-container {
   width: 1250px;
@@ -77,6 +129,7 @@ header .sale {
   /* border: red 2px solid; */
   display: flex;
   justify-content: space-between;
+  font-family: "Maison Neue", sans-serif;
 }
 
 .product-container img {
