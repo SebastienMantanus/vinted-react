@@ -31,10 +31,47 @@ const Product = () => {
         <div>
           <img src={data.product_image.secure_url} alt={data.product_name} />
         </div>
-        <div>
-          <p>Product id : {id}</p>
-          <p>Product Name : {data.product_name}</p>
-          <Link to={"/"}>Link to Home Page</Link>
+        <div className="product-container-offer">
+          <div className="product-offer">
+            <div className="product-price">
+              <p>{data.product_price} €</p>
+            </div>
+            {data.product_details.map((element, index) => {
+              return (
+                <div key={index} className="product-details">
+                  <div>
+                    <p className="grey">{Object.keys(element)[0]}</p>
+                    <p>{element.MARQUE}</p>
+                  </div>
+                  <div>
+                    <p className="grey">{Object.keys(element)[1]}</p>
+                    <p>{element.ÉTAT}</p>
+                  </div>
+                  <div>
+                    <p className="grey">{Object.keys(element)[2]}</p>
+                    <p>{element.COULEUR}</p>
+                  </div>
+                  <div>
+                    <p className="grey">{Object.keys(element)[3]}</p>
+                    <p>{element.EMPLACEMENT}</p>
+                  </div>
+                </div>
+              );
+            })}
+
+            <div className="separator"></div>
+            <div className="product-description">
+              <p>Tee-shirt cotelé</p>
+              <p className="grey">Très bon état général</p>
+            </div>
+            <div className="product-owner">
+              <p>logo</p>
+              <p>Owner Name</p>
+            </div>
+            <Link className="buy-button" to={"/"}>
+              Acheter
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -54,7 +54,7 @@ const Home = () => {
                       </p>
 
                       {element.product_details.map((element, index) => {
-                        return <p>{element.MARQUE}</p>;
+                        return <p key={index}>{element.MARQUE}</p>;
                       })}
                     </div>
                   </div>
