@@ -37,36 +37,29 @@ const Product = () => {
               <p>{data.product_price} €</p>
             </div>
             {data.product_details.map((element, index) => {
+              // setProductGoodness(element.ETAT);
               return (
-                <div key={index} className="product-details">
-                  <div>
+                <div key={index}>
+                  <div className="product-details">
                     <p className="grey">{Object.keys(element)[0]}</p>
-                    <p>{element.MARQUE}</p>
-                  </div>
-                  <div>
-                    <p className="grey">{Object.keys(element)[1]}</p>
-                    <p>{element.ÉTAT}</p>
-                  </div>
-                  <div>
-                    <p className="grey">{Object.keys(element)[2]}</p>
-                    <p>{element.COULEUR}</p>
-                  </div>
-                  <div>
-                    <p className="grey">{Object.keys(element)[3]}</p>
-                    <p>{element.EMPLACEMENT}</p>
+                    <p>{element[Object.keys(element)[0]]}</p>
                   </div>
                 </div>
               );
             })}
 
             <div className="separator"></div>
+
             <div className="product-description">
-              <p>Tee-shirt cotelé</p>
-              <p className="grey">Très bon état général</p>
+              <p>{data.product_name}</p>
+              <p className="grey">{data.product_description}</p>
             </div>
             <div className="product-owner">
-              <p>logo</p>
-              <p>Owner Name</p>
+              <img
+                src={data.owner.account.avatar.secure_url}
+                alt="avatar vendeur"
+              />
+              <p>{data.owner.account.username}</p>
             </div>
             <Link className="buy-button" to={"/"}>
               Acheter

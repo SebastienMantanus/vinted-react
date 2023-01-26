@@ -155,15 +155,16 @@ header .sale {
   color: #757575;
 }
 .product-price {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+  font-size: 30px;
 }
 .product-details {
-  border: red 2px solid;
   width: 70%;
   display: flex;
+  justify-content: space-between;
+
   gap: 5px;
-  flex-direction: column;
-  margin-bottom: 40px;
+  margin-bottom: 5px;
 }
 .product-details div {
   display: flex;
@@ -174,6 +175,7 @@ header .sale {
 .separator {
   border: 0.5px #b8b8b8 solid;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 .product-description {
   display: flex;
@@ -182,16 +184,23 @@ header .sale {
   margin-bottom: 10px;
 }
 .product-owner {
-  margin-top: 20px;
-  margin-bottom: 100px;
+  margin-top: 60px;
+  margin-bottom: 80px;
   display: flex;
+  align-items: center;
   gap: 20px;
+}
+
+.product-owner img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 25px;
 }
 
 .buy-button {
   background-color: #2baeb7;
   border-radius: 5px;
   color: white;
-  margin-top: 50px;
   padding: 10px 180px;
 }
