@@ -28,6 +28,7 @@ header input {
 }
 
 .button {
+  color: black;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 13px;
@@ -203,4 +204,25 @@ header .sale {
   border-radius: 5px;
   color: white;
   padding: 10px 180px;
+}
+
+/* SIGNUP */
+
+.form-container {
+  width: 500px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > h1 {
+  font-size: 30px;
+  text-align: center;
+}
+.form-container form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 20px;
 }

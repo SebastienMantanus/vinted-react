@@ -10,7 +10,9 @@ const Header = () => {
         </Link>
         <input type="text" placeholder="Rechercher des articles" />
         <div className="flex-signup">
-          <div className="button signup">S'inscrire</div>
+          <Link to="/signup">
+            <div className="button signup">S'inscrire</div>
+          </Link>
           <div className="button signup">Se connecter</div>
         </div>
         <div className="button sale">Vends tes articles</div>
