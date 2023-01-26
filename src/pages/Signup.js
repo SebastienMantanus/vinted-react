@@ -1,18 +1,44 @@
 import { useState } from "react";
+import axios from "axios";
 
 const Signup = () => {
   const [username, SetUsername] = useState("");
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [newsletter, SetNewsletter] = useState(false);
-
-  const handleSubmit = (event) => {
+  const signupSubmit = async (event) => {
     event.preventDefault();
+    try {
+      const response = await axios.post(
+        `https://lereacteur-vinted-api.herokuapp.com/user/signup`,
+        {
+          email: { email },
+          username: { username },
+          password: { password },
+          newsletter: { newsletter },
+        }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
+
+  //   const sendSignup = async () => {
+  //     try {
+  //       const response = await axios.post(
+  //         `https://lereacteur-vinted-api.herokuapp.com/user/signup?email=${email}&username=${username}&password=${password}&newsletter=${newsletter}`
+  //       );
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.log(error.response);
+  //     }
+  //   };
+
   return (
     <div className="form-container">
       <h1>S'inscrire</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={signupSubmit}>
         <input
           id="username"
           type="text"
@@ -51,7 +77,7 @@ const Signup = () => {
           ></input>
           <label id="newsletter">S'inscrire à notre Newsletter</label>
         </div>
-        <button>S'inscrire</button>
+        <button type="submit">S'inscrire</button>
       </form>
     </div>
   );
