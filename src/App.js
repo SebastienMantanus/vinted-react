@@ -4,11 +4,15 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Signup from "./pages/Signup";
+import { useState } from "react";
+import Cookies from "js-cookie";
 
 function App() {
+  const [token, setToken] = useState(Cookies.get("token") || "");
+
   return (
     <Router>
-      <Header />
+      <Header token={token} setToken={setToken} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<Product />} />

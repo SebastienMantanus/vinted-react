@@ -1,7 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
 import logo from "../assets/logo.svg";
+import Cookies from "js-cookie";
 
-const Header = () => {
+const Header = ({ token, setToken }) => {
+  // const [token, setToken] = useState(Cookies.get("token") || "");
+
+  const navigate = useNavigate();
+  navigate(0);
+
   return (
     <header>
       <div className="container">
@@ -10,10 +17,22 @@ const Header = () => {
         </Link>
         <input type="text" placeholder="Rechercher des articles" />
         <div className="flex-signup">
-          <Link to="/signup">
-            <div className="button signup">S'inscrire</div>
-          </Link>
-          <div className="button signup">Se connecter</div>
+          {token ? (
+            <div
+              className="button signup"
+              onClick={() => {
+                Cookies.remove("token");
+                setToken("");
+              }}
+            >
+              Déconnexion
+            </div>
+          ) : (
+            <Link to="/signup">
+              <div className="button signup">S'inscrire</div>
+            </Link>
+          )}
+          {!token && <div className="button signup">Se connecter</div>}
         </div>
         <div className="button sale">Vends tes articles</div>
       </div>

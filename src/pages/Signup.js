@@ -1,39 +1,33 @@
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [username, SetUsername] = useState("");
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [newsletter, SetNewsletter] = useState(false);
+  const navigate = useNavigate();
+
   const signupSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
         `https://lereacteur-vinted-api.herokuapp.com/user/signup`,
         {
-          email: { email },
-          username: { username },
-          password: { password },
-          newsletter: { newsletter },
+          email: email,
+          username: username,
+          password: password,
+          newsletter: newsletter,
         }
       );
-      console.log(response.data);
+      Cookies.set("token", response.data.token, { expires: 7 });
+      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
   };
-
-  //   const sendSignup = async () => {
-  //     try {
-  //       const response = await axios.post(
-  //         `https://lereacteur-vinted-api.herokuapp.com/user/signup?email=${email}&username=${username}&password=${password}&newsletter=${newsletter}`
-  //       );
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.log(error.response);
-  //     }
-  //   };
 
   return (
     <div className="form-container">
