@@ -5,6 +5,9 @@ a {
   text-decoration: none;
 }
 
+.red {
+  border: red solid 2px;
+}
 /* HEADER */
 
 header {
@@ -70,13 +73,22 @@ header .sale {
 /* MAIN */
 
 /* OFFERS */
+
 .offers-grid {
-  margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 50px auto;
+  width: 1250px;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
 }
+
+.offers-container {
+  display: flex;
+
+  gap: 17px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .offer {
   border: none;
 
@@ -122,6 +134,7 @@ header .sale {
 
 .product-div {
   background-color: #f5f6f7;
+  height: 100vh;
   display: flex;
   justify-content: center;
   font-family: "Maison Neue", sans-serif;
@@ -144,6 +157,7 @@ header .sale {
 .product-container-offer {
   background-color: white;
   width: 500px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -236,19 +250,13 @@ header .sale {
   user-select: none;
 }
 
-/* #newsletter {
-  background-color: #2baeb7;
-} */
 .form-container form input {
   border-top: none;
   border-left: none;
   border-right: none;
+  outline: none;
   font-family: "Maison Neue", sans-serif;
   font-size: 20px;
-}
-.form-container form input :focus {
-  border: none;
-  background-color: red;
 }
 
 .form-container form input::placeholder {
@@ -258,6 +266,15 @@ header .sale {
 .form-container form label {
   font-size: 15px;
   padding-left: 10px;
+}
+
+.form-container form button {
+  color: white;
+  font-size: 20px;
+  background-color: #2baeb7;
+  border: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .linkto {
