@@ -38,6 +38,7 @@ header input {
 .flex-signup {
   display: flex;
   gap: 10px;
+  cursor: pointer;
 }
 .signup {
   border: 1px solid #2baeb7;
@@ -207,11 +208,12 @@ header .sale {
   padding: 10px 180px;
 }
 
-/* SIGNUP */
+/* SIGNUP and LOGIN */
 
 .form-container {
+  font-family: "Maison Neue", sans-serif;
   width: 500px;
-  margin: 40px auto;
+  margin: 60px auto;
   display: flex;
   flex-direction: column;
 }
@@ -221,9 +223,23 @@ header .sale {
   text-align: center;
 }
 .form-container form {
-  margin-top: 20px;
+  font-family: "Maison Neue", sans-serif;
+  font-size: 25px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: left;
-  gap: 20px;
+  gap: 50px;
+}
+
+.form-container form input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: "Maison Neue", sans-serif;
+  font-size: 20px;
+}
+
+.form-container form input::placeholder {
+  color: lightgrey;
 }

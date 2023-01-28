@@ -1,16 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ token, setToken }) => {
   const [username, SetUsername] = useState("");
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [newsletter, SetNewsletter] = useState(false);
   const navigate = useNavigate();
 
-  const signupSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
@@ -23,6 +23,7 @@ const Signup = () => {
         }
       );
       Cookies.set("token", response.data.token, { expires: 7 });
+      setToken(response.data.token);
       navigate("/");
     } catch (error) {
       console.log(error.response);
@@ -32,7 +33,7 @@ const Signup = () => {
   return (
     <div className="form-container">
       <h1>S'inscrire</h1>
-      <form onSubmit={signupSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           id="username"
           type="text"
@@ -73,6 +74,9 @@ const Signup = () => {
         </div>
         <button type="submit">S'inscrire</button>
       </form>
+      <Link to="/login">
+        <p>Déjà un compte ? connectez-vous !</p>
+      </Link>
     </div>
   );
 };

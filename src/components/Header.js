@@ -1,13 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-// import { useEffect } from "react";
 import logo from "../assets/logo.svg";
 import Cookies from "js-cookie";
 
 const Header = ({ token, setToken }) => {
-  // const [token, setToken] = useState(Cookies.get("token") || "");
-
   const navigate = useNavigate();
-  navigate(0);
 
   return (
     <header>
@@ -23,16 +19,21 @@ const Header = ({ token, setToken }) => {
               onClick={() => {
                 Cookies.remove("token");
                 setToken("");
+                navigate("/");
               }}
             >
-              Déconnexion
+              Se déconnecter
             </div>
           ) : (
             <Link to="/signup">
               <div className="button signup">S'inscrire</div>
             </Link>
           )}
-          {!token && <div className="button signup">Se connecter</div>}
+          {!token && (
+            <Link to="/login">
+              <div className="button signup">Se connecter</div>
+            </Link>
+          )}
         </div>
         <div className="button sale">Vends tes articles</div>
       </div>

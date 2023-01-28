@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
@@ -16,7 +17,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<Product />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/signup"
+          element={<Signup token={token} setToken={setToken} />}
+        />
+        <Route
+          path="/login"
+          element={<Login token={token} setToken={setToken} />}
+        />
       </Routes>
     </Router>
   );
