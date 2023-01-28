@@ -10,12 +10,18 @@ import Cookies from "js-cookie";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || "");
+  const [searchRequest, setSearchRequest] = useState("?");
 
   return (
     <Router>
-      <Header token={token} setToken={setToken} />
+      <Header
+        token={token}
+        setToken={setToken}
+        searchRequest={searchRequest}
+        setSearchRequest={setSearchRequest}
+      />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home searchRequest={searchRequest} />} />
         <Route path="/product/:id" element={<Product />} />
         <Route
           path="/signup"

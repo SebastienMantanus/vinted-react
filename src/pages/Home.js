@@ -3,17 +3,17 @@ import Hero from "../components/Hero";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const Home = () => {
+const Home = ({ searchRequest }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log("searchQuerry in fechData ==>" + searchRequest);
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?${searchRequest}`
         );
-        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -21,7 +21,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [searchRequest]);
 
   return isLoading ? (
     <p>En cours de chargement...</p>
