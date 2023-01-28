@@ -21,7 +21,7 @@ const Header = ({ token, setToken, searchRequest, setSearchRequest }) => {
           value={search}
           onChange={(event) => {
             setSearch(event.target.value);
-            setSearchRequest("title=" + search);
+            setSearchRequest("title=" + search.toUpperCase());
           }}
         />
         <div className="flex-signup">
