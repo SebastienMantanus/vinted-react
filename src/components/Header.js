@@ -1,12 +1,12 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import Cookies from "js-cookie";
-import { useState } from "react";
 
 const Header = ({ token, setToken, searchRequest, setSearchRequest }) => {
   const navigate = useNavigate();
-  // const [querry, setQuerry] = useState("");
-  const [search, setSearch] = useState("");
+
+  const location = useLocation();
+  console.log("Location ==>" + location.pathname);
 
   return (
     <header>
@@ -14,16 +14,20 @@ const Header = ({ token, setToken, searchRequest, setSearchRequest }) => {
         <Link to="/">
           <img src={logo} alt="logo vinted" />
         </Link>
+
         <input
+          style={{
+            visibility: location.pathname.includes("product") ? "hidden" : "",
+          }}
           id="search"
           type="text"
           placeholder="Rechercher des articles"
-          value={search}
+          value={searchRequest}
           onChange={(event) => {
-            setSearch(event.target.value);
-            setSearchRequest("title=" + search.toUpperCase());
+            setSearchRequest(event.target.value);
           }}
         />
+
         <div className="flex-signup">
           {token ? (
             <div

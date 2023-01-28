@@ -12,7 +12,7 @@ const Home = ({ searchRequest }) => {
       console.log("searchQuerry in fechData ==>" + searchRequest);
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?${searchRequest}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${searchRequest}`
         );
         setData(response.data);
         setIsLoading(false);

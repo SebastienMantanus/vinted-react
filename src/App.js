@@ -10,7 +10,7 @@ import Cookies from "js-cookie";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || "");
-  const [searchRequest, setSearchRequest] = useState("?");
+  const [searchRequest, setSearchRequest] = useState("");
 
   return (
     <Router>

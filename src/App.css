@@ -4,6 +4,9 @@
 a {
   text-decoration: none;
 }
+input {
+  outline: none;
+}
 
 .red {
   border: red solid 2px;
