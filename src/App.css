@@ -230,8 +230,15 @@ header .sale {
   flex-direction: column;
   justify-content: left;
   gap: 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
+/* #newsletter {
+  background-color: #2baeb7;
+} */
 .form-container form input {
   border-top: none;
   border-left: none;
@@ -239,7 +246,21 @@ header .sale {
   font-family: "Maison Neue", sans-serif;
   font-size: 20px;
 }
+.form-container form input :focus {
+  border: none;
+  background-color: red;
+}
 
 .form-container form input::placeholder {
   color: lightgrey;
+}
+
+.form-container form label {
+  font-size: 15px;
+  padding-left: 10px;
+}
+
+.linkto {
+  text-align: center;
+  margin-top: 30px;
 }

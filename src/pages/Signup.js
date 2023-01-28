@@ -75,7 +75,7 @@ const Signup = ({ token, setToken }) => {
         <button type="submit">S'inscrire</button>
       </form>
       <Link to="/login">
-        <p>Déjà un compte ? connectez-vous !</p>
+        <p className="linkto">Déjà un compte ? connectez-vous !</p>
       </Link>
     </div>
   );
