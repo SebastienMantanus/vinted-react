@@ -76,8 +76,6 @@ header .sale {
 
 .price-range {
   width: 60px;
-  /* margin-left: 10px;
-  margin-right: 10px; */
 }
 /* HERO */
 
@@ -154,6 +152,35 @@ header .sale {
   font-family: "Maison Neue", sans-serif;
 }
 
+.pages-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pages-section > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-family: "Maison Neue", sans-serif;
+  font-size: 20px;
+  background-color: lightgray;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.pages-section > div:hover {
+  border: 2px #2baeb7 solid;
+}
+
+.page-section-selected {
+  background-color: #2baeb7;
+  color: white;
+}
 /* PRODUCT */
 
 .product-div {

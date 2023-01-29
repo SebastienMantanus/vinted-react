@@ -3,25 +3,42 @@ import Hero from "../components/Hero";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const Home = ({ searchRequest, priceFilter }) => {
+const Home = ({ searchRequest, priceFilter, setPriceFilter }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [pagesArray, setPagesArray] = useState([]);
+  const itemsPage = 10;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${searchRequest}&priceMin=${priceFilter.min}&priceMax=${priceFilter.max}&sort=${priceFilter.display}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${searchRequest}&priceMin=${priceFilter.min}&priceMax=${priceFilter.max}&sort=${priceFilter.display}&page=${priceFilter.page}&limit=${itemsPage}`
         );
         setData(response.data);
         setIsLoading(false);
-        console.log("Nombre d'annonces ==>" + response.data.count);
+        console.log(
+          "Nombre de pages ==>" + Math.ceil(response.data.count / itemsPage)
+        );
+        const pagesArray = [];
+        for (
+          let i = 1;
+          i < Math.ceil(response.data.count / itemsPage) + 1;
+          i++
+        ) {
+          pagesArray.push([i]);
+        }
+        setPagesArray(pagesArray);
+        console.log("PargeArray ===>" + pagesArray);
+        //tableau de pagination des annonces
       } catch (error) {
         console.log(error.response);
       }
     };
     fetchData();
   }, [searchRequest, priceFilter]);
+
+  let priceFilterUpdate = { ...priceFilter };
 
   return isLoading ? (
     <p>En cours de chargement...</p>
@@ -61,6 +78,24 @@ const Home = ({ searchRequest, priceFilter }) => {
                     </div>
                   </Link>
                 )}
+              </div>
+            );
+          })}
+        </div>
+        <div className="pages-section">
+          {pagesArray.map((element, index) => {
+            return (
+              <div
+                className={
+                  priceFilter.page === element ? "page-section-selected" : ""
+                }
+                key={index}
+                onClick={() => {
+                  priceFilterUpdate.page = element;
+                  setPriceFilter(priceFilterUpdate);
+                }}
+              >
+                {element}
               </div>
             );
           })}

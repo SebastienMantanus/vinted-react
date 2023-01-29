@@ -17,6 +17,7 @@ function App() {
     min: "",
     max: "",
     display: "",
+    page: "",
   });
 
   return (
@@ -33,7 +34,11 @@ function App() {
         <Route
           path="/"
           element={
-            <Home searchRequest={searchRequest} priceFilter={priceFilter} />
+            <Home
+              searchRequest={searchRequest}
+              priceFilter={priceFilter}
+              setPriceFilter={setPriceFilter}
+            />
           }
         />
         <Route path="/product/:id" element={<Product />} />
