@@ -3,25 +3,25 @@ import Hero from "../components/Hero";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const Home = ({ searchRequest }) => {
+const Home = ({ searchRequest, priceFilter }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("searchQuerry in fechData ==>" + searchRequest);
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${searchRequest}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${searchRequest}&priceMin=${priceFilter.min}&priceMax=${priceFilter.max}&sort=${priceFilter.display}`
         );
         setData(response.data);
         setIsLoading(false);
+        console.log("Nombre d'annonces ==>" + response.data.count);
       } catch (error) {
         console.log(error.response);
       }
     };
     fetchData();
-  }, [searchRequest]);
+  }, [searchRequest, priceFilter]);
 
   return isLoading ? (
     <p>En cours de chargement...</p>

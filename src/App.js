@@ -11,6 +11,13 @@ import Cookies from "js-cookie";
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || "");
   const [searchRequest, setSearchRequest] = useState("");
+  // const [priceminFilter, setPriceminFilter] = useState("");
+  // const [pricemaxFilter, setPricemaxFilter] = useState("");
+  const [priceFilter, setPriceFilter] = useState({
+    min: "",
+    max: "",
+    display: "",
+  });
 
   return (
     <Router>
@@ -19,9 +26,16 @@ function App() {
         setToken={setToken}
         searchRequest={searchRequest}
         setSearchRequest={setSearchRequest}
+        priceFilter={priceFilter}
+        setPriceFilter={setPriceFilter}
       />
       <Routes>
-        <Route path="/" element={<Home searchRequest={searchRequest} />} />
+        <Route
+          path="/"
+          element={
+            <Home searchRequest={searchRequest} priceFilter={priceFilter} />
+          }
+        />
         <Route path="/product/:id" element={<Product />} />
         <Route
           path="/signup"

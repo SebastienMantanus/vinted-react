@@ -2,11 +2,20 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import Cookies from "js-cookie";
 
-const Header = ({ token, setToken, searchRequest, setSearchRequest }) => {
+const Header = ({
+  token,
+  setToken,
+  searchRequest,
+  setSearchRequest,
+  priceFilter,
+  setPriceFilter,
+}) => {
   const navigate = useNavigate();
 
   const location = useLocation();
   console.log("Location ==>" + location.pathname);
+
+  let priceFilterUpdate = { ...priceFilter };
 
   return (
     <header>
@@ -14,20 +23,69 @@ const Header = ({ token, setToken, searchRequest, setSearchRequest }) => {
         <Link to="/">
           <img src={logo} alt="logo vinted" />
         </Link>
-
-        <input
-          style={{
-            visibility: location.pathname.includes("product") ? "hidden" : "",
-          }}
-          id="search"
-          type="text"
-          placeholder="Rechercher des articles"
-          value={searchRequest}
-          onChange={(event) => {
-            setSearchRequest(event.target.value);
-          }}
-        />
-
+        <div className="search-filters">
+          <input
+            style={{
+              visibility: location.pathname.includes("product") ? "hidden" : "",
+            }}
+            id="search"
+            type="text"
+            placeholder="Rechercher des articles"
+            value={searchRequest}
+            onChange={(event) => {
+              setSearchRequest(event.target.value);
+            }}
+          />
+          <div
+            style={{
+              visibility: location.pathname.includes("product") ? "hidden" : "",
+            }}
+          >
+            <label id="picemin">Entre :</label>
+            <input
+              className="price-range"
+              id="picemin"
+              type="number"
+              placeholder={priceFilter.min}
+              onChange={(event) => {
+                priceFilterUpdate.min = event.target.value;
+                setPriceFilter(priceFilterUpdate);
+              }}
+            />
+            <p>€</p>
+            <label id="pricemax">Et :</label>
+            <input
+              className="price-range"
+              id="pricemax"
+              type="number"
+              placeholder={priceFilter.max}
+              onChange={(event) => {
+                priceFilterUpdate.max = event.target.value;
+                setPriceFilter(priceFilterUpdate);
+              }}
+            />
+            <p>€</p>
+            {priceFilter.display === "price-asc" ? (
+              <button
+                onClick={() => {
+                  priceFilterUpdate.display = "price-desc";
+                  setPriceFilter(priceFilterUpdate);
+                }}
+              >
+                Prix croissant
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  priceFilterUpdate.display = "price-asc";
+                  setPriceFilter(priceFilterUpdate);
+                }}
+              >
+                Prix décroissant
+              </button>
+            )}
+          </div>
+        </div>
         <div className="flex-signup">
           {token ? (
             <div
