@@ -7,12 +7,11 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import Publish from "./pages/Publish";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || "");
   const [searchRequest, setSearchRequest] = useState("");
-  // const [priceminFilter, setPriceminFilter] = useState("");
-  // const [pricemaxFilter, setPricemaxFilter] = useState("");
   const [priceFilter, setPriceFilter] = useState({
     min: "",
     max: "",
@@ -50,6 +49,7 @@ function App() {
           path="/login"
           element={<Login token={token} setToken={setToken} />}
         />
+        <Route path="/publish" element={<Publish token={token} />} />
       </Routes>
     </Router>
   );

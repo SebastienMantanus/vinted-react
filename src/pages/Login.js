@@ -21,7 +21,7 @@ const Login = ({ token, setToken }) => {
         }
       );
       response.data.token && setToken(response.data.token);
-      Cookies.set("token", token, { expires: 7 });
+      Cookies.set("token", response.data.token, { expires: 7 });
       SetFailConnexion(false);
       navigate("/");
     } catch (error) {
