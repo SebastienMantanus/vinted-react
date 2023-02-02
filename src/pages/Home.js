@@ -53,15 +53,15 @@ const Home = ({ searchRequest, priceFilter, setPriceFilter }) => {
                 {element.owner && (
                   <Link to={`/product/${element._id}`}>
                     <div className="offer">
-                      {element.owner.account.avatar.secure_url && (
-                        <div className="offer-owner">
+                      <div className="offer-owner">
+                        {element.owner.account.avatar && (
                           <img
                             src={element.owner.account.avatar.secure_url}
                             alt="owner avatar"
                           />
-                          ;<p>{element.owner.account.username}</p>
-                        </div>
-                      )}
+                        )}
+                        <p>{element.owner.account.username}</p>
+                      </div>
 
                       <img
                         className="offer-image"
