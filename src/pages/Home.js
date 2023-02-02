@@ -7,7 +7,7 @@ const Home = ({ searchRequest, priceFilter, setPriceFilter }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [pagesArray, setPagesArray] = useState([]);
-  const itemsPage = 10;
+  const itemsPage = 15;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,13 +53,15 @@ const Home = ({ searchRequest, priceFilter, setPriceFilter }) => {
                 {element.owner && (
                   <Link to={`/product/${element._id}`}>
                     <div className="offer">
-                      <div className="offer-owner">
-                        <img
-                          src={element.owner.account.avatar.secure_url}
-                          alt="owner avatar"
-                        />
-                        <p>{element.owner.account.username}</p>
-                      </div>
+                      {element.owner.account.avatar.secure_url && (
+                        <div className="offer-owner">
+                          <img
+                            src={element.owner.account.avatar.secure_url}
+                            alt="owner avatar"
+                          />
+                          ;<p>{element.owner.account.username}</p>
+                        </div>
+                      )}
 
                       <img
                         className="offer-image"
