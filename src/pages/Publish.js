@@ -17,6 +17,7 @@ const Publish = ({ token }) => {
     <div className="publish-background">
       <container className="publish-container">
         <h1>Vends ton article</h1>
+
         {/* FORM PUBLISHING */}
 
         <form
@@ -24,7 +25,8 @@ const Publish = ({ token }) => {
           onSubmit={async (event) => {
             event.preventDefault();
 
-            const formData = new formData();
+            const formData = new FormData();
+
             formData.append("title", title);
             formData.append("description", description);
             formData.append("brand", brand);
@@ -161,7 +163,6 @@ const Publish = ({ token }) => {
           <button type="submit">Ajouter</button>
         </form>
       </container>
-      <Navigate to="/home" />
     </div>
   ) : (
     <Navigate to="/signup" />
