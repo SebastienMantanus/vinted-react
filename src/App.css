@@ -337,7 +337,7 @@ header .sale {
 
 .publish-background {
   background-color: #efefef;
-  height: 100vh;
+  height: 120%vh;
 }
 .publish-container {
   font-family: "Maison Neue", sans-serif;
@@ -362,11 +362,38 @@ header .sale {
   border: 2px solid lightgray;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 15px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  /* padding-bottom: 40px; */
+}
+.publish-form-divs > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-bottom: lightgray 1px solid;
+}
+
+.publish-form-divs > div > input,
+textarea {
+  border-style: none;
+  border-bottom: lightgray 1px solid;
+  width: 600px;
+  margin-bottom: 15px;
+}
+
+.publish-form button {
+  display: flex;
+  font-size: 20px;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  color: white;
+  width: 200px;
+  height: 50px;
+  background-color: #2baeb7;
+  border: none;
+  border-radius: 5px;
   margin-bottom: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  align-self: flex-end;
 }

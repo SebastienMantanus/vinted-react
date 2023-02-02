@@ -26,7 +26,11 @@ const Header = ({
         <div className="search-filters">
           <input
             style={{
-              visibility: location.pathname.includes("product") ? "hidden" : "",
+              visibility:
+                location.pathname.includes("product") ||
+                location.pathname.includes("publish")
+                  ? "hidden"
+                  : "",
             }}
             id="search"
             type="text"
@@ -38,7 +42,11 @@ const Header = ({
           />
           <div
             style={{
-              visibility: location.pathname.includes("product") ? "hidden" : "",
+              visibility:
+                location.pathname.includes("product") ||
+                location.pathname.includes("publish")
+                  ? "hidden"
+                  : "",
             }}
           >
             <label id="picemin">Entre :</label>
