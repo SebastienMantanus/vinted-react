@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
 
 const Publish = ({ token }) => {
@@ -12,6 +12,7 @@ const Publish = ({ token }) => {
   const [price, setPrice] = useState(0);
   const [city, SetCity] = useState("Paris");
   const [picture, SetPicture] = useState(null);
+  const navigate = useNavigate();
 
   return token ? (
     <div className="publish-background">
@@ -48,7 +49,8 @@ const Publish = ({ token }) => {
                 }
               );
               console.log(response.data);
-              <Navigate to="/home" />;
+              // const objectId = response.data._id;
+              navigate(`/product/${response.data._id}`);
             } catch (error) {
               console.log(error.response);
             }
@@ -156,10 +158,6 @@ const Publish = ({ token }) => {
                 }}
               ></input>
             </div>
-            {/* <div style={{ alignSelf: "flex-end" }}>
-              <input id="echange" type="checkbox"></input>
-              <label id="echange">Je suis intéressé par les échanges</label>
-            </div> */}
           </div>
           <button type="submit">Ajouter</button>
         </form>

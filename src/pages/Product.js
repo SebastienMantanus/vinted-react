@@ -55,10 +55,13 @@ const Product = () => {
               <p className="grey">{data.product_description}</p>
             </div>
             <div className="product-owner">
-              <img
-                src={data.owner.account.avatar.secure_url}
-                alt="avatar vendeur"
-              />
+              {data.owner.account.avatar && (
+                <img
+                  src={data.owner.account.avatar.secure_url}
+                  alt="avatar vendeur"
+                />
+              )}
+
               <p>{data.owner.account.username}</p>
             </div>
             <Link className="buy-button" to={"/"}>
