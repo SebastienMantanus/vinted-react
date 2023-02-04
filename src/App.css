@@ -425,8 +425,6 @@ textarea {
   padding-bottom: 50px;
 }
 .order_resumee {
-  /* border: red solid 1px; */
-  /* color: #959595; */
   margin-top: 10px;
   width: 100%;
   display: flex;
@@ -439,4 +437,23 @@ textarea {
 
 .margin_top {
   margin-top: 30px;
+}
+
+/* CHeckoutForm */
+
+.pay_form {
+  border: solid 1px #efefef;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.pay_form > button {
+  background-color: #00c06d;
+  color: white;
+  text-align: center;
+  border: none;
+  margin-top: 30px;
+  padding: 10px;
+  font-size: 20px;
+  width: 100%;
 }

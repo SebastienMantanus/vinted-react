@@ -16,6 +16,7 @@ const Product = () => {
         // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
+        console.log("USER===> " + response.data.owner._id);
       } catch (error) {
         console.log(error.response);
       }
@@ -37,7 +38,6 @@ const Product = () => {
               <p>{data.product_price} €</p>
             </div>
             {data.product_details.map((element, index) => {
-              // setProductGoodness(element.ETAT);
               return (
                 <div key={index}>
                   <div className="product-details">
@@ -70,6 +70,7 @@ const Product = () => {
               state={{
                 product_price: data.product_price,
                 product_name: data.product_name,
+                buyer: data.owner._id,
               }}
             >
               Acheter
