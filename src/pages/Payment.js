@@ -7,9 +7,9 @@ const stripePromise = loadStripe(
   "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
 );
 
-const Payment = ({ token }) => {
+const Payment = ({ token, userId }) => {
   const location = useLocation();
-  const buyer = location.state.user;
+  const buyer = userId;
   const product_name = location.state.product_name;
   const product_price = location.state.product_price;
   const warranty_price = 0.4;
@@ -19,11 +19,11 @@ const Payment = ({ token }) => {
     warranty_price +
     transport_price
   ).toFixed(2);
-  console.log("USER =======> " + buyer);
+
   return token ? (
     <div className="payment-background">
       <div className="payment-container">
-        <h1>Résumé de la commande {buyer}</h1>
+        <h1>Résumé de la commande</h1>
         <div className="price-details">
           <div className="grey order_resumee">
             <p>Commande</p>
@@ -52,7 +52,11 @@ const Payment = ({ token }) => {
           </div>
         </div>
         <Elements stripe={stripePromise}>
-          <CheckoutForm />
+          <CheckoutForm
+            buyer={buyer}
+            amount={total_price}
+            titleOffer={product_name}
+          />
         </Elements>
       </div>
     </div>

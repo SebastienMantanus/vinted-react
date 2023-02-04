@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const Login = ({ token, setToken }) => {
+const Login = ({ token, setToken, setUserId }) => {
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [failConnexion, SetFailConnexion] = useState();
@@ -20,9 +20,13 @@ const Login = ({ token, setToken }) => {
           password,
         }
       );
+      console.log(response.data);
+
       response.data.token && setToken(response.data.token);
       Cookies.set("token", response.data.token, { expires: 7 });
       SetFailConnexion(false);
+      setUserId(response.data._id);
+
       navigate("/");
     } catch (error) {
       SetFailConnexion(true);

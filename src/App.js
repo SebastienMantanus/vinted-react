@@ -12,6 +12,7 @@ import Payment from "./pages/Payment";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("token") || "");
+  const [userId, setUserId] = useState("");
   const [searchRequest, setSearchRequest] = useState("");
   const [priceFilter, setPriceFilter] = useState({
     min: "",
@@ -44,14 +45,21 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route
           path="/signup"
-          element={<Signup token={token} setToken={setToken} />}
+          element={
+            <Signup token={token} setToken={setToken} setUserId={setUserId} />
+          }
         />
         <Route
           path="/login"
-          element={<Login token={token} setToken={setToken} />}
+          element={
+            <Login token={token} setToken={setToken} setUserId={setUserId} />
+          }
         />
         <Route path="/publish" element={<Publish token={token} />} />
-        <Route path="/payment" element={<Payment token={token} />} />
+        <Route
+          path="/payment"
+          element={<Payment token={token} userId={userId} />}
+        />
       </Routes>
     </Router>
   );

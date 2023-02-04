@@ -16,7 +16,6 @@ const Product = () => {
         // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
-        console.log("USER===> " + response.data.owner._id);
       } catch (error) {
         console.log(error.response);
       }
