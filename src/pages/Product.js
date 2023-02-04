@@ -64,7 +64,14 @@ const Product = () => {
 
               <p>{data.owner.account.username}</p>
             </div>
-            <Link className="buy-button" to={"/"}>
+            <Link
+              className="buy-button"
+              to={"/payment"}
+              state={{
+                product_price: data.product_price,
+                product_name: data.product_name,
+              }}
+            >
               Acheter
             </Link>
           </div>

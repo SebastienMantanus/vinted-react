@@ -3,14 +3,14 @@ import { useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
 
 const Publish = ({ token }) => {
-  const [title, SetTitle] = useState("ex: : chemise verte");
-  const [description, SetDescription] = useState("ex: : portée quelques fois");
-  const [brand, SetBrand] = useState("ex : Hugo Boss");
-  const [size, SetSize] = useState("ex : par ex : taille 38");
-  const [color, setColor] = useState("ex : Rouge et bleue");
-  const [condition, SetCondition] = useState("ex : Neuf");
-  const [price, setPrice] = useState(0);
-  const [city, SetCity] = useState("Paris");
+  const [title, SetTitle] = useState("");
+  const [description, SetDescription] = useState("");
+  const [brand, SetBrand] = useState("");
+  const [size, SetSize] = useState("");
+  const [color, setColor] = useState("");
+  const [condition, SetCondition] = useState("");
+  const [price, setPrice] = useState();
+  const [city, SetCity] = useState("");
   const [picture, SetPicture] = useState(null);
   const navigate = useNavigate();
 
@@ -70,6 +70,7 @@ const Publish = ({ token }) => {
               <input
                 id="title"
                 type="text"
+                placeholder="ex: : chemise verte"
                 value={title}
                 onChange={(event) => {
                   SetTitle(event.target.value);
@@ -82,6 +83,7 @@ const Publish = ({ token }) => {
                 id="description"
                 cols="40"
                 rows="5"
+                placeholder="ex: : portée quelques fois"
                 value={description}
                 onChange={(event) => {
                   SetDescription(event.target.value);
@@ -95,6 +97,7 @@ const Publish = ({ token }) => {
               <input
                 id="marque"
                 type="text"
+                placeholder="ex : Hugo Boss"
                 value={brand}
                 onChange={(event) => {
                   SetBrand(event.target.value);
@@ -106,6 +109,7 @@ const Publish = ({ token }) => {
               <input
                 id="taille"
                 type="text"
+                placeholder="ex : par ex : taille 38"
                 value={size}
                 onChange={(event) => {
                   SetSize(event.target.value);
@@ -117,6 +121,7 @@ const Publish = ({ token }) => {
               <input
                 id="couleur"
                 type="text"
+                placeholder="ex : Rouge et bleue"
                 value={color}
                 onChange={(event) => {
                   setColor(event.target.value);
@@ -128,6 +133,7 @@ const Publish = ({ token }) => {
               <input
                 id="etat"
                 type="text"
+                placeholder="ex : Neuf"
                 value={condition}
                 onChange={(event) => {
                   SetCondition(event.target.value);
@@ -139,6 +145,7 @@ const Publish = ({ token }) => {
               <input
                 id="lieu"
                 type="text"
+                placeholder="ex : Paris"
                 value={city}
                 onChange={(event) => {
                   SetCity(event.target.value);
@@ -152,6 +159,7 @@ const Publish = ({ token }) => {
               <input
                 id="prix"
                 type="number"
+                placeholder="ex : 120 €"
                 value={price}
                 onChange={(event) => {
                   setPrice(event.target.value);
